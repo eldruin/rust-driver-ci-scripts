@@ -1,4 +1,4 @@
-# Scripts for CI for Rust drivers
+# Continuous-integration scripts for Rust drivers
 
 These scripts can be used to build and test Rust drivers using Travis-CI and
 upload the coverage to coveralls.io.
