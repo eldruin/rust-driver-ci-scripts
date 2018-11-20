@@ -21,6 +21,10 @@ main() {
     if [ -z $DISABLE_TESTS ] && [[ $TARGET =~ .*linux.* ]]; then
         cargo test $CARGO_OPTIONS
     fi
+
+    if [ -z $DISABLE_CLIPPY ]; then
+        cargo clippy
+    fi
 }
 
 main
