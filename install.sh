@@ -9,7 +9,7 @@ main() {
         echo "Target $TARGET is already installed"
     fi
 
-    if [ -z $DISABLE_CLIPPY ]; then
+    if [ -z $DISABLE_CLIPPY ] && [[ $TRAVIS_RUST_VERSION =~ .*stable.* ]]; then
         rustup component add clippy-preview
     fi
 }

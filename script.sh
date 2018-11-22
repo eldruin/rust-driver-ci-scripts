@@ -22,7 +22,7 @@ main() {
         cargo test $CARGO_OPTIONS
     fi
 
-    if [ -z $DISABLE_CLIPPY ]; then
+    if [ -z $DISABLE_CLIPPY ] && [[ $TRAVIS_RUST_VERSION =~ .*stable.* ]]; then
         cargo clippy
     fi
 }
