@@ -22,7 +22,7 @@ main() {
         cargo test $CARGO_OPTIONS
     fi
 
-    if [ ! -z $ENABLE_CLIPPY ]; then
+    if [ -z $DISABLE_CLIPPY ]; then
         cargo clippy
     fi
 }
