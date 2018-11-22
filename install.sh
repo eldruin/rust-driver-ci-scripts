@@ -9,7 +9,7 @@ main() {
         echo "Target $TARGET is already installed"
     fi
 
-    if [ -z $DISABLE_CLIPPY ]; then
+    if [ ! -z $ENABLE_CLIPPY ]; then
         rustup component add clippy-preview
     fi
 }
