@@ -1,3 +1,3 @@
 set -euxo pipefail
-# cargo coveralls --verbose
-cargo tarpaulin --ciserver travis-ci --coveralls $TRAVIS_JOB_ID
+
+cargo tarpaulin -v --ciserver travis-ci --coveralls $TRAVIS_JOB_ID || cargo coveralls --verbose
