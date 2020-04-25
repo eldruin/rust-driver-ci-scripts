@@ -6,6 +6,7 @@ main() {
         sed -i "s/linux-embedded-hal/#linux-embedded-hal/g" Cargo.toml
         sed -i "s/embedded-hal-mock/#embedded-hal-mock/g" Cargo.toml
     fi
+    sed -i "s/criterion/#criterion/g" Cargo.toml
 
     if [ ! -z $NO_DEFAULT_FEATURES ]; then
        export CARGO_OPTIONS="$CARGO_OPTIONS --no-default-features"
