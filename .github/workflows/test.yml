@@ -1,0 +1,30 @@
+name: Test
+on:
+  workflow_call:
+    inputs:
+      rust:
+        required: true
+        type: string
+      target:
+        required: true
+        type: string
+
+env:
+  RUSTFLAGS: '--deny warnings'
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ inputs.rust }}
+          targets: ${{ inputs.target }}
+
+      - name: Test
+        run: cargo test --target=${{ inputs.target }}
+
+      - name: Build examples
+        run: cargo build --target=${{ inputs.target }} --examples
