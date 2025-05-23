@@ -5,6 +5,10 @@ on:
       clippy-version:
         required: true
         type: string
+      clippy-all-targets:
+        required: false
+        default: true
+        type: boolean
 
 
 env:
@@ -37,7 +41,10 @@ jobs:
           targets: x86_64-unknown-linux-gnu
           components: clippy
 
-      - run: cargo clippy --all-targets
+      - name: Run clippy checks
+        env:
+          ALL_TARGETS_ARG: ${{ inputs.clippy-all-targets && '--all-targets' || '' }} 
+      - run: cargo clippy $ALL_TARGETS_ARG
 
   coverage:
     name: Coverage
