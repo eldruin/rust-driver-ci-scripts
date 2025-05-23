@@ -44,7 +44,7 @@ jobs:
       - name: Run clippy checks
         env:
           ALL_TARGETS_ARG: ${{ inputs.clippy-all-targets && '--all-targets' || '' }} 
-      - run: cargo clippy $ALL_TARGETS_ARG
+        run: cargo clippy $ALL_TARGETS_ARG
 
   coverage:
     name: Coverage
