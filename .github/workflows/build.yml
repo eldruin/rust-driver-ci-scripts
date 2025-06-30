@@ -8,6 +8,9 @@ on:
       target:
         required: true
         type: string
+      features:
+        required: false
+        type: string
 
 env:
   RUSTFLAGS: '--deny warnings'
@@ -34,4 +37,4 @@ jobs:
       - run: ./ci/patch-no-std.sh
         if: ${{ ! contains(inputs.target, 'x86_64') }}
 
-      - run: cargo build --target=${{ inputs.target }}
+      - run: cargo build --target=${{ inputs.target }} --features=${{ inputs.features }}
